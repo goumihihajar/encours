@@ -274,9 +274,9 @@
   /* ======================================== */
   .message-overlay {
     position: absolute;
-    bottom: -44px;
+    bottom: -40px;
     width: 380px;
-    left: 51%;
+    left: 47%;
     transform: translateX(-50%);
     background: rgba(255, 255, 255, 0.96);
     backdrop-filter: blur(10px);
@@ -369,11 +369,11 @@
     .map-wrapper { max-width: 300px; }
 
     .message-overlay {
-      bottom: -26px;
-      padding: 8px 10px;
-      white-space: normal;
-      max-width: 82%;
-      left: 154px;
+        bottom: -32px;
+        padding: 8px 10px;
+        white-space: normal;
+        max-width: 82%;
+        left: 182px;
     }
     .message-text {top: 11px;font-size: 12px;}
  

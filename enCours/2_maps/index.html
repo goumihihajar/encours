@@ -147,8 +147,8 @@ const regionCentersRaw = [
         const regionData = regionCenters[normalizeName(p.name)] || { nombre_centre_fixe: 0, nombre_centre_mobile: 0 };
         tooltip.innerHTML =
           '<div class="tname">' + p.name + '</div>' +
-          '<div class="trow"><span class="tval">' + fmt(regionData.nombre_centre_fixe) + ' </span><span class="tval-legend">Centres fixe</span></div>' +
-          '<div class="trow"><span class="tval">' + fmt(regionData.nombre_centre_mobile) + ' </span><span class="tval-legend">Centre mobile</span></div>';
+                    '<div class="trow"><span class="tval">' + fmt(regionData.nombre_centre_fixe) + ' </span><span class="tval-legend">Sites</span></div>';
+
         tooltip.style.opacity = '1';
         const tw = tooltip.offsetWidth || 210;
         const th = tooltip.offsetHeight || 75;
