@@ -367,7 +367,7 @@
     }
     .map-side {
       margin-bottom: 2px;
-      margin-top: -80px;
+      margin-top: -95px;
     }
     .construction-title {
       letter-spacing: -1px;
@@ -395,6 +395,14 @@
         transform: translateX(-50%);
     }
     .message-text { top: 11px; font-size: 12px; }
+
+    .construction-title .highlight {
+    /* font-style: italic; */
+    font-weight: 500;
+    color: var(--blood-red);
+    position: relative;
+    display: inline;
+}
  
   }
    /* ======================================== */
