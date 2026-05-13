@@ -391,7 +391,7 @@
         white-space: normal;
         width: 85%;
         max-width: 247px;
-        left: 50%;
+        left: 53%;
         transform: translateX(-50%);
     }
     .message-text { top: 11px; font-size: 12px; }
@@ -402,7 +402,14 @@
     color: var(--blood-red);
     position: relative;
     display: inline;
-}
+    }
+
+ /* CARTE plus grande en mobile + décalée à gauche */
+  .map-wrapper {
+    max-width: 100%;
+    width: 100%;
+    transform: translateX(-40px);   /* ← décale à gauche de 20px */
+  }
  
   }
    /* ======================================== */
