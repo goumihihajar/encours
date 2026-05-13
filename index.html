@@ -1,81 +1,206 @@
-<html lang="fr"><head>
+<!DOCTYPE html>
+<html lang="fr">
+<head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>AMSD — Maquettes &amp; Propositions</title>
+<title>AMSD — Site en cours de construction</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,400&amp;family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css?v=1.0">
-<style>
-  .sections {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 36px;
-  }
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.8.5/d3.min.js"></script>
+<link rel="stylesheet" href="style.css">
 
-  .section {
-    width: min(100%, 720px);
-  }
-</style>
 </head>
 <body>
 
-<div class="container">
-
-  <!-- HEADER -->
-  <header class="header">
-    <img src="logo_amsd.png" alt="Logo AMSD" class="logo" width="200" >
-
-
-
-  </header>
-
-  <!-- SECTIONS -->
-  <div class="sections">
-
-    <!-- ============ PARTIE 1 : MAQUETTES ============ -->
-    <section class="section">
-
-
-      <div class="section-header">
-        <h2 class="section-title">En Cours de Construction</h2>
-        
-      </div>
-
-      <ul class="link-list">
-        <li class="link-item">
-          <a href="enCours/1_interactive/index.html">
-            <span class="link-left">
-              <span class="link-num">1</span>
-              <span class="link-label">Carte interactive </span>
-            </span>
-            <span class="link-arrow">→</span>
-          </a>
-        </li>
-    
-     
-<li class="link-item">
-          <a href="enCours/2_maps/index.html">
-            <span class="link-left">
-              <span class="link-num">2</span>
-              <span class="link-label">Carte interactive avec liens google maps</span>
-            </span>
-            <span class="link-arrow">→</span>
-          </a>
-        </li>
-
-
-      </ul>
-    </section>
-
-  </div>
-
-  <!-- FOOTER -->
-  
-
+<!-- LOGO AMSD GRAND, SANS FOND -->
+<div class="logo-header">
+  <img src="images/logo_amsd.png" alt="AMSD — Agence Marocaine du Sang et de ses Dérivés">
 </div>
 
+<main class="page">
+
+  <!-- =================== LEFT : CONSTRUCTION =================== -->
+  <section class="content-side">
+
+    <h1 class="construction-title">
+      Site en cours<br>
+      de <span class="highlight"> construction</span>
+    </h1>
+
+    <div class="progress-section">
+      <div class="progress-label">
+        <span>Avancement</span>
+        <span class="progress-percent">20%</span>
+      </div>
+      <div class="progress-bar">
+        <div class="progress-fill"></div>
+      </div>
+    </div>
+
+    <div class="pulse-live">
+      <span class="pulse-dot"></span>
+      <span>Développement actif</span>
+    </div>
+
+  </section>
+
+  <!-- =================== RIGHT : CARTE D3 =================== -->
+  <section class="map-side">
+    <div class="map-wrapper">
+
+      <!-- Carte D3 interactive -->
+      <div id="map-wrap">
+        <div id="d3-tooltip"></div>
+        <svg id="map" viewBox="0 0 765 618" xmlns="http://www.w3.org/2000/svg"></svg>
+      </div>
+
+      <!-- Message overlay conservé -->
+      <div class="message-overlay">
+        <p class="message-text">
+          <strong>Mobilisons-nous</strong> pour sauver des vies
+        </p>
+      </div>
+
+    </div>
+  </section>
+
+</main>
+
+<script src="geojson.js"></script>
+<script>
+(function() {
+  const svg = d3.select('#map');
+  const tooltip = document.getElementById('d3-tooltip');
+  const W = 860, H = 620;
+
+  if (typeof GEOJSON === 'undefined') {
+    // Fallback si geojson.js absent : affiche un message discret
+    svg.append('text')
+      .attr('x', W / 2).attr('y', H / 2)
+      .attr('text-anchor', 'middle')
+      .attr('font-size', 14)
+      .attr('fill', '#aaa')
+      .text('Chargement de la carte…');
+    return;
+  }
+
+  const proj = d3.geoMercator().fitSize([W, H], GEOJSON);
+  const path = d3.geoPath().projection(proj);
+
+  function fmt(n) { return n.toLocaleString('fr-MA'); }
+
+  // Fonction qui normalise : majuscules → minuscules, supprime accents, trim
+  function normalizeName(str) {
+    return str
+      .toLowerCase()
+      .normalize('NFD')                    // décompose les accents
+      .replace(/[\u0300-\u036f]/g, '')     // supprime les accents
+      .trim();
+  }
+
+ // Tableau de régions avec coordonnées et informations supplémentaires
+const regionCentersRaw = [
+  { name: 'TANGER-TETOUAN-AL HOCEIMA', coords: [-5.4932, 34.8488], nombre_centre_fixe: 16, nombre_centre_mobile: 5, googleMapsLink: 'https://maps.app.goo.gl/Ta3cYXtpYuuxvwvj6' },
+  { name: 'ORIENTAL-RIF', coords: [-2.4009, 33.4067], nombre_centre_fixe: 10, nombre_centre_mobile: 4, googleMapsLink: 'https://maps.app.goo.gl/JsBAQWtoz4M6byAn7' },
+  { name: 'FES-MEKNES', coords: [-4.7346, 33.7156], nombre_centre_fixe: 11, nombre_centre_mobile: 11, googleMapsLink: 'https://maps.app.goo.gl/NftVds4QkVvmNviRA' },
+  { name: 'RABAT-SALE-KENITRA', coords: [-6.2422, 33.8213], nombre_centre_fixe: 10, nombre_centre_mobile: 11, googleMapsLink: 'https://maps.app.goo.gl/gBPajvd1bcLCYyiB7' },
+  { name: 'BENI MELLAL-KHENIFRA', coords: [-6.3692, 32.2992], nombre_centre_fixe: 11, nombre_centre_mobile: 1, googleMapsLink: 'https://maps.app.goo.gl/FmHXGcp9ZgSREm7g8' },
+  { name: 'CASABLANCA-SETTAT', coords: [-7.7616, 32.8044], nombre_centre_fixe: 22, nombre_centre_mobile: 11, googleMapsLink: 'https://maps.app.goo.gl/WW6Kardtr4zu1CZJ9' },
+  { name: 'MARRAKECH-SAFI', coords: [-8.6075, 31.4236], nombre_centre_fixe: 9, nombre_centre_mobile: 8, googleMapsLink: 'https://maps.app.goo.gl/HE76k9Vydj5AzdeX7' },
+  { name: 'DRAA-TAFILALET', coords: [-5.4611, 31.0317], nombre_centre_fixe: 4, nombre_centre_mobile: 1, googleMapsLink: 'https://maps.app.goo.gl/fW3LVoXZy7sw6axcA' },
+  { name: 'SOUSS-MASSA', coords: [-8.6697, 29.8311], nombre_centre_fixe: 11, nombre_centre_mobile: 5, googleMapsLink: 'https://maps.app.goo.gl/NZnjzAUei7rkpJDt6' },
+  { name: 'GUELMIM-OUED NOUN', coords: [-10.0924, 28.2966], nombre_centre_fixe: 0, nombre_centre_mobile: 0, googleMapsLink: 'https://maps.app.goo.gl/sCUVUDjaANgxAKFy7' },
+  { name: 'LAAYOUNE-BOUJDOUR-SAKIA AL HAMRA', coords: [-12.6246, 26.2883], nombre_centre_fixe: 1, nombre_centre_mobile: 2, googleMapsLink: 'https://maps.app.goo.gl/WCdB9iZ8oo2rzt1FA' },
+  { name: 'ED DAKHLA-OUED EDDAHAB', coords: [-14.6027, 22.7044], nombre_centre_fixe: 0, nombre_centre_mobile: 0, googleMapsLink: 'https://maps.app.goo.gl/JBmCJ5eQLU3GK1cr6' }
+];
+
+  // Construire un dictionnaire avec clés normalisées
+  const regionCenters = {};
+  regionCentersRaw.forEach(item => {
+    regionCenters[normalizeName(item.name)] = item;
+  });
+
+  // Dessin des régions
+  GEOJSON.features.forEach(function(f) {
+    const p = f.properties;
+    const normalizedName = normalizeName(p.name);
+    const regionData = regionCenters[normalizedName] || { nombre_centre_fixe: 0, nombre_centre_mobile: 0, googleMapsLink: '' };
+    
+    svg.append('path')
+      .datum(f)
+      .attr('class', 'region')
+      .attr('d', path)
+      .attr('fill', 'transparent')
+      .attr('stroke', '#C0392B')
+      .attr('stroke-width', 1.5)
+      .style('cursor', 'pointer')
+      .on('click', function(event) {
+        event.stopPropagation();
+        if (regionData.googleMapsLink) {
+          window.open(regionData.googleMapsLink, '_blank');
+        }
+      })
+      .on('mousemove', function(event) {
+        const wrap = document.getElementById('map-wrap');
+        const [mx, my] = d3.pointer(event, wrap);
+        const regionData = regionCenters[normalizeName(p.name)] || { nombre_centre_fixe: 0, nombre_centre_mobile: 0 };
+        tooltip.innerHTML =
+          '<div class="tname">' + p.name + '</div>' 
+          <!-- '<div class="trow"><span class="tval">' + fmt(regionData.nombre_centre_fixe) + ' </span><span class="tval-legend">Sites</span></div>'; -->
+        tooltip.style.opacity = '1';
+        const tw = tooltip.offsetWidth || 210;
+        const th = tooltip.offsetHeight || 75;
+        const cw = wrap.offsetWidth;
+        let lx = mx + 14;
+        if (lx + tw > cw) lx = mx - tw - 14;
+        tooltip.style.left = lx + 'px';
+        tooltip.style.top = (my - th / 2) + 'px';
+      })
+      .on('mouseleave', function() {
+        tooltip.style.opacity = '0';
+      });
+  });
+
+GEOJSON.features.forEach(function(f) {
+  const regionName = f.properties.name;
+  const normalizedName = normalizeName(regionName);
+  
+  let point;
+  if (regionCenters[normalizedName]) {
+    point = proj(regionCenters[normalizedName].coords);   // ← proj au lieu de projection
+  } else {
+    console.warn('Région non trouvée:', regionName, '→ normalisé:', normalizedName);
+    point = path.centroid(f);
+  }
+  
+  svg.append('image')
+    .attr('href', 'images/marqueurGPS.png')
+    .attr('x', point[0] - 15)
+    .attr('y', point[1] - 30)
+    .attr('width', 30)
+    .attr('height', 30);
+
+  
+});
 
 
-</body></html>
+// MODE DEBUG : clique sur la carte pour récupérer les coordonnées
+svg.on('click', function(event) {
+  const [mx, my] = d3.pointer(event);
+  const [lng, lat] = proj.invert([mx, my]);
+  console.log(`Coordonnées : [${lng.toFixed(4)}, ${lat.toFixed(4)}]`);
+  
+  // Affiche un point rouge temporaire pour visualiser
+  svg.append('circle')
+    .attr('cx', mx)
+    .attr('cy', my)
+    .attr('r', 5)
+    .attr('fill', 'red');
+});
+  
+})();
+</script>
+
+</body>
+</html>

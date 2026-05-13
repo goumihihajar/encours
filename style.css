@@ -1,14 +1,9 @@
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>AMSD ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Â Maquettes & Propositions</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-<style>
-  * { margin: 0; padding: 0; box-sizing: border-box; }
+ * { 
+    margin: 0; 
+    padding: 0; 
+    box-sizing: border-box; 
+
+}
 
   :root {
     --blood-red: #c8102e;
@@ -16,467 +11,450 @@
     --blood-bright: #e63946;
     --ink: #1a1a2e;
     --ink-soft: #5a6170;
-    --ink-mute: #9aa1af;
     --paper: #fafaf7;
-    --cream: #ffffff;
-    --border: #ebe7dd;
+    --border: #e8e3d7;
+  }
+
+  html, body {
+    height: 100%;
+    overflow: hidden;
   }
 
   body {
-    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    font-family: "Segoe UI", SegoeUI, "Helvetica Neue", Helvetica, Arial, sans-serif;
     background: var(--paper);
     color: var(--ink);
-    min-height: 100vh;
+    height: 100vh;
     line-height: 1.5;
     position: relative;
-    padding: 7px 32px;
   }
 
   body::before {
     content: '';
     position: fixed;
-    inset: 0;
+    top: 0; left: 0; right: 0; bottom: 0;
     background-image:
-      radial-gradient(circle at 10% 15%, rgba(200, 16, 46, 0.045) 0%, transparent 40%),
-      radial-gradient(circle at 90% 85%, rgba(200, 16, 46, 0.03) 0%, transparent 40%);
+      radial-gradient(circle at 15% 20%, rgba(200, 16, 46, 0.05) 0%, transparent 45%),
+      radial-gradient(circle at 85% 80%, rgba(200, 16, 46, 0.035) 0%, transparent 45%);
     pointer-events: none;
     z-index: 0;
   }
 
-  .container {
-    max-width: 1100px;
-    margin: 0 auto;
+  /* ======================================== */
+  /* LOGO EN HAUT ÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã¢â‚¬Â ÃƒÂ¢Ã¢â€šÂ¬Ã¢â€žÂ¢ÃƒÆ’Ã†â€™ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬ÃƒÂ¢Ã¢â‚¬Å¾Ã‚Â¢ÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€šÃ‚Â ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡Ãƒâ€šÃ‚Â¬ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¾Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã¢â‚¬Â ÃƒÂ¢Ã¢â€šÂ¬Ã¢â€žÂ¢ÃƒÆ’Ã†â€™ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€¦Ã‚Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¬ÃƒÆ’Ã†â€™ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â¦ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¡ÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€¦Ã‚Â¡ÃƒÆ’Ã†â€™ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¬ GAUCHE ÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã¢â‚¬Â ÃƒÂ¢Ã¢â€šÂ¬Ã¢â€žÂ¢ÃƒÆ’Ã†â€™ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬ÃƒÂ¢Ã¢â‚¬Å¾Ã‚Â¢ÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€¦Ã‚Â¡ÃƒÆ’Ã†â€™ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã¢â‚¬Â ÃƒÂ¢Ã¢â€šÂ¬Ã¢â€žÂ¢ÃƒÆ’Ã†â€™ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€¦Ã‚Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¬ÃƒÆ’Ã†â€™ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â¦ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¡ÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€¦Ã‚Â¡ÃƒÆ’Ã†â€™ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¬ÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã¢â‚¬Â ÃƒÂ¢Ã¢â€šÂ¬Ã¢â€žÂ¢ÃƒÆ’Ã†â€™ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡Ãƒâ€šÃ‚Â¬ÃƒÆ’Ã¢â‚¬Â¦Ãƒâ€šÃ‚Â¡ÃƒÆ’Ã†â€™ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¬ÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€¦Ã‚Â¡ÃƒÆ’Ã†â€™ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â grand, sans fond  */
+  /* ======================================== */
+  .logo-header {
+    position: absolute;
+    top: 28px;
+    left: 54px;
+    z-index: 10;
+  }
+
+  .logo-header img {
+    height: 80px;
+    width: auto;
+    display: block;
+    filter: drop-shadow(0 6px 18px rgba(26, 26, 46, 0.18));
+  }
+
+  /* ======================================== */
+  /* LAYOUT ÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã¢â‚¬Â ÃƒÂ¢Ã¢â€šÂ¬Ã¢â€žÂ¢ÃƒÆ’Ã†â€™ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬ÃƒÂ¢Ã¢â‚¬Å¾Ã‚Â¢ÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€¦Ã‚Â¡ÃƒÆ’Ã†â€™ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã¢â‚¬Â ÃƒÂ¢Ã¢â€šÂ¬Ã¢â€žÂ¢ÃƒÆ’Ã†â€™ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€¦Ã‚Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¬ÃƒÆ’Ã†â€™ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â¦ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¡ÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€¦Ã‚Â¡ÃƒÆ’Ã†â€™ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¬ÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã¢â‚¬Â ÃƒÂ¢Ã¢â€šÂ¬Ã¢â€žÂ¢ÃƒÆ’Ã†â€™ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡Ãƒâ€šÃ‚Â¬ÃƒÆ’Ã¢â‚¬Â¦Ãƒâ€šÃ‚Â¡ÃƒÆ’Ã†â€™ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¬ÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€¦Ã‚Â¡ÃƒÆ’Ã†â€™ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â plein ÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã¢â‚¬Â ÃƒÂ¢Ã¢â€šÂ¬Ã¢â€žÂ¢ÃƒÆ’Ã†â€™ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬ÃƒÂ¢Ã¢â‚¬Å¾Ã‚Â¢ÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€šÃ‚Â ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡Ãƒâ€šÃ‚Â¬ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¾Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã¢â‚¬Â ÃƒÂ¢Ã¢â€šÂ¬Ã¢â€žÂ¢ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡Ãƒâ€šÃ‚Â¬ÃƒÆ’Ã¢â‚¬Â¦Ãƒâ€šÃ‚Â¡ÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€¦Ã‚Â¡ÃƒÆ’Ã†â€™ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â©cran sans scroll         */
+  /* ======================================== */
+  .page {
+    height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    padding: 10px 45px 17px 70px;
+    gap: 10px;
     position: relative;
     z-index: 1;
   }
 
   /* ======================================== */
-  /* HEADER                                   */
+  /* LEFT ÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã¢â‚¬Â ÃƒÂ¢Ã¢â€šÂ¬Ã¢â€žÂ¢ÃƒÆ’Ã†â€™ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬ÃƒÂ¢Ã¢â‚¬Å¾Ã‚Â¢ÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€¦Ã‚Â¡ÃƒÆ’Ã†â€™ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã¢â‚¬Â ÃƒÂ¢Ã¢â€šÂ¬Ã¢â€žÂ¢ÃƒÆ’Ã†â€™ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€¦Ã‚Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¬ÃƒÆ’Ã†â€™ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â¦ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¡ÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€¦Ã‚Â¡ÃƒÆ’Ã†â€™ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¬ÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã¢â‚¬Â ÃƒÂ¢Ã¢â€šÂ¬Ã¢â€žÂ¢ÃƒÆ’Ã†â€™ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡Ãƒâ€šÃ‚Â¬ÃƒÆ’Ã¢â‚¬Â¦Ãƒâ€šÃ‚Â¡ÃƒÆ’Ã†â€™ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¬ÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€¦Ã‚Â¡ÃƒÆ’Ã†â€™ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â STATUT CONSTRUCTION               */
   /* ======================================== */
-  .header {
-    text-align: center;
-    margin-bottom: 4px;
-    margin-top: 6px;
+  .content-side {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-top: 200px;
   }
 
-  .eyebrow {
+  /* Ruban de chantier */
+  .construction-ribbon {
     display: inline-flex;
     align-items: center;
-    gap: 14px;
-    font-size: 21px;
-    font-weight: 500;
-    letter-spacing: 3px;
+    background: linear-gradient(135deg, #fff4b8 0%, #ffe082 100%);
+    border: 2px solid #f59e0b;
+    padding: 11px 20px;
+    border-radius: 3px;
+    margin-bottom: 28px;
+    position: relative;
+    box-shadow: 0 6px 20px rgba(245, 158, 11, 0.22);
+    align-self: flex-start;
+  }
+
+  .construction-ribbon::before,
+  .construction-ribbon::after {
+    content: '';
+    position: absolute;
+    top: -2px;
+    bottom: -2px;
+    width: 12px;
+    background: repeating-linear-gradient(
+      135deg,
+      #000 0px, #000 5px,
+      #fbbf24 5px, #fbbf24 10px
+    );
+  }
+  .construction-ribbon::before { left: -2px; border-radius: 3px 0 0 3px; }
+  .construction-ribbon::after { right: -2px; border-radius: 0 3px 3px 0; }
+
+  .ribbon-text {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2.4px;
     text-transform: uppercase;
-    color: var(--blood-red);
-    margin-bottom: -2px;
-    padding-top: -31px;
+    color: #78350f;
+    margin: 0 16px;
   }
 
-  .eyebrow-line {
-    width: 32px;
-    height: 1px;
-    background: var(--blood-red);
-  }
-
-  .title {
-    font-family: 'Playfair Display', Georgia, serif;
-    font-size: clamp(38px, 4.8vw, 60px);
+  .ribbon-icon {
+    font-size: 16px;
     line-height: 1;
-    font-weight: 900;
+  }
+
+  /* Titre grand et visible */
+  .construction-title {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: clamp(48px, 5.8vw, 88px);
+    line-height: 0.95;
+    font-weight: 500;
     color: var(--ink);
-    letter-spacing: -1.8px;
+    letter-spacing: -2.5px;
     margin-bottom: 18px;
   }
 
-  .title em {
-    font-style: italic;
-    font-weight: 700;
+  .construction-title .highlight {
+    /* font-style: italic; */
+    font-weight: 500;
     color: var(--blood-red);
-    font-family: 'Playfair Display', serif;
-  }
-
-  .subtitle {
-    font-size: 15px;
-    color: var(--ink-soft);
-    max-width: 520px;
-    margin: 0 auto;
-    font-weight: 400;
-  }
-
-  /* ======================================== */
-  /* SECTIONS                                 */
-  /* ======================================== */
-  .sections {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 36px;
-  }
-
-  .section {
-    background: var(--cream);
-    border: 1px solid var(--border);
-    border-radius: 16px;
-    padding: 40px 36px 32px;
-    transition: transform 0.35s cubic-bezier(0.25, 0.8, 0.25, 1),
-                box-shadow 0.35s cubic-bezier(0.25, 0.8, 0.25, 1),
-                border-color 0.35s;
     position: relative;
-    overflow: hidden;
+    display: inline-block;
   }
 
-  .section:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 24px 48px rgba(26, 26, 46, 0.08);
-    border-color: rgba(200, 16, 46, 0.25);
-  }
-
-  /* Bandeau colorÃƒÆ’Ã‚Â© en haut de chaque section */
-  .section::before {
+  .construction-title .highlight::after {
     content: '';
     position: absolute;
-    top: 0;
+    bottom: 8px;
     left: 0;
     right: 0;
-    height: 4px;
-    background: linear-gradient(90deg, var(--blood-red) 0%, var(--blood-bright) 100%);
+    height: 7px;
+    background: var(--blood-red);
+    opacity: 0.15;
+    z-index: -1;
   }
 
-  /* Badge en haut ÃƒÆ’Ã‚Â  droite */
-  .section-badge {
-    position: absolute;
-    top: 22px;
-    right: 22px;
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    font-size: 9.5px;
-    font-weight: 700;
-    letter-spacing: 1.4px;
-    text-transform: uppercase;
-    padding: 5px 10px 5px 8px;
-    border-radius: 100px;
+  /* Barre de progression */
+  .progress-section {
+    margin-top: 36px;
+    max-width: 440px;
   }
 
-  .badge-done {
-    background: rgba(16, 185, 129, 0.1);
-    color: #047857;
-  }
-
-  .badge-wip {
-    background: rgba(245, 158, 11, 0.12);
-    color: #92400e;
-  }
-
-  .badge-dot {
-    width: 6px;
-    height: 6px;
-    border-radius: 50%;
-  }
-
-  .badge-done .badge-dot { background: #10b981; }
-  .badge-wip .badge-dot {
-    background: #f59e0b;
-    animation: blink 1.5s ease-in-out infinite;
-  }
-
-  @keyframes blink {
-    0%, 100% { opacity: 1; }
-    50% { opacity: 0.3; }
-  }
-
-  /* Titre de section */
-  .section-header {
-    margin-bottom: 32px;
-  }
-
-  .section-number {
-    font-family: 'Playfair Display', serif;
-    font-size: 13px;
-    font-weight: 700;
-    font-style: italic;
-    color: var(--blood-red);
-    letter-spacing: 2px;
-    margin-bottom: 8px;
-  }
-
-  .section-title {
-    font-family: sans-serif;
-    font-size: 29px;
-    font-weight: 500;
-    color: var(--ink);
-    letter-spacing: -0.5px;
-    line-height: 0.8;
-    margin-bottom: 8px;
-  }
-
-  .section-desc {
-    font-size: 13px;
-    color: var(--ink-soft);
-    letter-spacing: 0.2px;
-  }
-
-  /* Liste des liens */
-  .link-list {
-    list-style: none;
+  .progress-label {
     display: flex;
-    flex-direction: column;
-    gap: 8px;
-  }
-
-  .link-item a {
-    display: flex;
-    align-items: center;
     justify-content: space-between;
-    padding: 18px 20px;
-    background: var(--paper);
-    border: 1px solid transparent;
-    border-radius: 10px;
-    text-decoration: none;
-    color: var(--ink);
-    transition: all 0.25s cubic-bezier(0.25, 0.8, 0.25, 1);
-    position: relative;
-    overflow: hidden;
+    align-items: baseline;
+    margin-bottom: 10px;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--ink-soft);
   }
 
-  .link-item a::before {
+  .progress-percent {
+    color: var(--blood-red);
+    font-family: 'Playfair Display', serif;
+    font-size: 20px;
+    letter-spacing: 0;
+    text-transform: none;
+    font-weight: 700;
+  }
+
+  .progress-bar {
+    height: 6px;
+    background: #ececec;
+    border-radius: 3px;
+    overflow: hidden;
+    position: relative;
+  }
+
+  .progress-fill {
+    height: 100%;
+    width: 20%;
+    background: linear-gradient(90deg, var(--blood-red) 0%, var(--blood-bright) 100%);
+    border-radius: 3px;
+    position: relative;
+  }
+
+  .progress-fill::after {
     content: '';
     position: absolute;
-    left: 0;
-    top: 0;
-    bottom: 0;
-    width: 3px;
-    background: var(--blood-red);
-    transform: scaleY(0);
-    transform-origin: center;
-    transition: transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    top: 0; right: 0;
+    width: 14px; height: 100%;
+    background: white;
+    opacity: 0.5;
+    animation: shine-sweep 2.5s ease-in-out infinite;
   }
 
-  .link-item a:hover {
-    background: #fff;
-    border-color: rgba(200, 16, 46, 0.2);
-    transform: translateX(4px);
-    box-shadow: 0 6px 20px rgba(200, 16, 46, 0.08);
+  @keyframes shine-sweep {
+    0% { transform: translateX(-250px); }
+    100% { transform: translateX(40px); }
   }
 
-  .link-item a:hover::before {
-    transform: scaleY(1);
-  }
-
-  .link-left {
-    display: flex;
+  /* Indicateur actif */
+  .pulse-live {
+    display: inline-flex;
     align-items: center;
-    gap: 16px;
+    gap: 10px;
+    margin-top: 28px;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--ink-soft);
   }
 
-  .link-num {
-    width: 32px;
-    height: 32px;
-    border-radius: 8px;
-    background: rgba(200, 16, 46, 0.08);
+  .pulse-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: var(--blood-red);
+    animation: pulse-dot 2s ease-in-out infinite;
+  }
+
+  @keyframes pulse-dot {
+    0%, 100% { box-shadow: 0 0 0 0 rgba(200, 16, 46, 0.7); }
+    50% { box-shadow: 0 0 0 12px rgba(200, 16, 46, 0); }
+  }
+
+  /* ======================================== */
+  /* RIGHT ÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã¢â‚¬Â ÃƒÂ¢Ã¢â€šÂ¬Ã¢â€žÂ¢ÃƒÆ’Ã†â€™ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬ÃƒÂ¢Ã¢â‚¬Å¾Ã‚Â¢ÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€¦Ã‚Â¡ÃƒÆ’Ã†â€™ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã¢â‚¬Â ÃƒÂ¢Ã¢â€šÂ¬Ã¢â€žÂ¢ÃƒÆ’Ã†â€™ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€¦Ã‚Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¬ÃƒÆ’Ã†â€™ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â¦ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¡ÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€¦Ã‚Â¡ÃƒÆ’Ã†â€™ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¬ÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã¢â‚¬Â ÃƒÂ¢Ã¢â€šÂ¬Ã¢â€žÂ¢ÃƒÆ’Ã†â€™ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡Ãƒâ€šÃ‚Â¬ÃƒÆ’Ã¢â‚¬Â¦Ãƒâ€šÃ‚Â¡ÃƒÆ’Ã†â€™ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¬ÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€¦Ã‚Â¡ÃƒÆ’Ã†â€™ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â CARTE avec ombre + message       */
+  /* ======================================== */
+  .map-side {
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
+    position: relative;
+    padding-top: 0px;
+  }
+
+  .map-wrapper {
+    position: relative;
+    width: 100%;
+    max-width: 600px;
+  }
+
+  /* Carte : ombre douce type logo, pas de cadre */
+  .map-image {
+    width: 100%;
+    height: auto;
+    display: block;
+    position: relative;
+    z-index: 1;
+    filter: drop-shadow(0 20px 40px rgba(26, 26, 46, 0.22))
+            drop-shadow(0 4px 12px rgba(200, 16, 46, 0.12));
+  }
+
+  /* ======================================== */
+  /* MESSAGE SUPERPOSÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã¢â‚¬Â ÃƒÂ¢Ã¢â€šÂ¬Ã¢â€žÂ¢ÃƒÆ’Ã†â€™ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬ÃƒÂ¢Ã¢â‚¬Å¾Ã‚Â¢ÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€šÃ‚Â ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡Ãƒâ€šÃ‚Â¬ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¾Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã¢â‚¬Â ÃƒÂ¢Ã¢â€šÂ¬Ã¢â€žÂ¢ÃƒÆ’Ã†â€™ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡Ãƒâ€šÃ‚Â¬ÃƒÆ’Ã¢â‚¬Â¦Ãƒâ€šÃ‚Â¡ÃƒÆ’Ã†â€™ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¬ÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€¦Ã‚Â¡ÃƒÆ’Ã†â€™ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â° SUR LA CARTE           */
+  /* ======================================== */
+  .message-overlay {
+    position: absolute;
+    bottom: -40px;
+    width: 380px;
+    left: 47%;
+    transform: translateX(-50%);
+    background: rgba(255, 255, 255, 0.96);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    padding: 10px 11px;
+    border-left: 4px solid var(--blood-red);
+    box-shadow:
+      0 12px 32px rgba(26, 26, 46, 0.18),
+      0 4px 10px rgba(200, 16, 46, 0.1);
+    white-space: nowrap;
+    z-index: 5;
+  }
+
+  .message-text {
     font-family: 'Playfair Display', serif;
-    font-size: 14px;
-    font-weight: 700;
-    color: var(--blood-red);
-    font-style: italic;
-    flex-shrink: 0;
-    transition: all 0.3s;
-  }
-
-  .link-item a:hover .link-num {
-    background: var(--blood-red);
-    color: white;
-    transform: rotate(-5deg);
-  }
-
-  .link-label {
-    font-size: 15px;
-    font-weight: 500;
+    font-size: 20px;
+    font-weight: 400;
     color: var(--ink);
-    letter-spacing: 0.2px;
+    letter-spacing: 0.3px;
+    line-height: 1.2;
   }
 
-  .link-arrow {
-    color: var(--ink-mute);
-    font-size: 18px;
-    transition: transform 0.3s, color 0.3s;
-  }
-
-  .link-item a:hover .link-arrow {
-    color: var(--blood-red);
-    transform: translateX(4px);
-  }
-
-  /* ======================================== */
-  /* FOOTER                                   */
-  /* ======================================== */
-  .footer {
-    text-align: center;
-    margin-top: 6px;
-    padding-top: 2px;
-    border-top: 1px solid var(--border);
-  }
-
-  .footer-text {
-    font-size: 11px;
-    font-weight: 500;
-    letter-spacing: 2.5px;
-    text-transform: uppercase;
-    color: var(--ink-mute);
-  }
-
-  .footer-text strong {
+  .message-text strong {
     color: var(--blood-red);
     font-weight: 700;
+    font-style: normal;
   }
 
   /* ======================================== */
-  /* RESPONSIVE                               */
+  /* RESPONSIVE ÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã¢â‚¬Â ÃƒÂ¢Ã¢â€šÂ¬Ã¢â€žÂ¢ÃƒÆ’Ã†â€™ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬ÃƒÂ¢Ã¢â‚¬Å¾Ã‚Â¢ÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€¦Ã‚Â¡ÃƒÆ’Ã†â€™ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã¢â‚¬Â ÃƒÂ¢Ã¢â€šÂ¬Ã¢â€žÂ¢ÃƒÆ’Ã†â€™ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€¦Ã‚Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¬ÃƒÆ’Ã†â€™ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â¦ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¡ÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€¦Ã‚Â¡ÃƒÆ’Ã†â€™ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¬ÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã¢â‚¬Â ÃƒÂ¢Ã¢â€šÂ¬Ã¢â€žÂ¢ÃƒÆ’Ã†â€™ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡Ãƒâ€šÃ‚Â¬ÃƒÆ’Ã¢â‚¬Â¦Ãƒâ€šÃ‚Â¡ÃƒÆ’Ã†â€™ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¬ÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€¦Ã‚Â¡ÃƒÆ’Ã†â€™ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â ADAPTATION ÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã¢â‚¬Â ÃƒÂ¢Ã¢â€šÂ¬Ã¢â€žÂ¢ÃƒÆ’Ã†â€™ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬ÃƒÂ¢Ã¢â‚¬Å¾Ã‚Â¢ÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€šÃ‚Â ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡Ãƒâ€šÃ‚Â¬ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¾Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã¢â‚¬Â ÃƒÂ¢Ã¢â€šÂ¬Ã¢â€žÂ¢ÃƒÆ’Ã†â€™ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡Ãƒâ€šÃ‚Â¬ÃƒÆ’Ã¢â‚¬Â¦Ãƒâ€šÃ‚Â¡ÃƒÆ’Ã†â€™ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¬ÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€¦Ã‚Â¡ÃƒÆ’Ã†â€™ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â°CRANS MOYENS    */
   /* ======================================== */
-  @media (max-width: 840px) {
-    body { padding: 40px 20px; }
-    .header { margin-bottom: 50px; }
-    .sections {
+  @media (max-height: 760px) {
+    .logo-header img { height: 68px; }
+    .construction-title {/* font-size: clamp(40px, 5vw, 72px); */}
+    .progress-section { margin-top: 28px; }
+    .pulse-live { margin-top: 22px; }
+    .map-wrapper { max-width: 420px; }
+  }
+
+  @media (max-height: 1840px) {
+    .logo-header img {height: 181px;}
+    .construction-title {/* font-size: clamp(36px, 4.5vw, 60px); */}
+    .construction-ribbon { margin-bottom: 20px; padding: 8px 16px; }
+    .ribbon-text { font-size: 10px; }
+    .progress-section { margin-top: 20px; }
+    .pulse-live { margin-top: 18px; }
+    .map-wrapper {max-width: 705px;}
+  }
+
+  @media (max-width: 1024px) {
+    html, body { overflow-y: auto; }
+    html, body { height: auto; }
+
+    .logo-header { top: 20px; left: 50%; transform: translateX(-50%); }
+    .logo-header img { height: 70px; }
+
+    .page {
       grid-template-columns: 1fr;
-      gap: 24px;
+      padding: 120px 32px 40px;
+      gap: 20px;
+      height: auto;
+      min-height: 100vh;
     }
-    .section { padding: 32px 24px 24px; }
-    .section-title { font-size: 24px; }
-    .link-item a { padding: 14px 16px; }
-    .link-left { gap: 12px; }
-    .link-num { width: 28px; height: 28px; font-size: 13px; }
-    .link-label { font-size: 14px; }
+    .content-side, .map-side { padding-top: 0; }
+    .content-side {
+      text-align: center;
+      align-items: center;
+      justify-content: flex-start;
+    }
+    .map-side { margin-bottom: 20px; }
+    .construction-ribbon { align-self: center; }
+    .construction-title { letter-spacing: -1.5px; }
+    .progress-section { margin-left: auto; margin-right: auto; }
+    .pulse-live { justify-content: center; }
   }
 
-  @media (max-width: 420px) {
-    .title { letter-spacing: -1px; }
-    .section-badge {
-      top: 16px;
-      right: 16px;
-      font-size: 8.5px;
-      padding: 4px 8px 4px 7px;
+  @media (max-width: 640px) {
+    .logo-header { top: 16px; left: 50%; transform: translateX(-50%); }
+    .logo-header img { height: 100px; }
+
+    .page { padding: 100px 20px 40px; gap: 20px; }
+    .content-side { justify-content: flex-start; }
+    .map-side { margin-bottom: 20px; }
+    .construction-title {
+    letter-spacing: -1px;
+    font-size: 42px;
+    margin-top: 30px;
+    }
+
+    .map-wrapper { max-width: 300px; }
+
+    .message-overlay {
+        bottom: -32px;
+        padding: 8px 10px;
+        white-space: normal;
+        max-width: 82%;
+        left: 182px;
+    }
+    .message-text {top: 11px;font-size: 12px;}
+ 
+  }
+   /* ======================================== */
+  /* CARTE D3 INLINE — remplace carte.png     */
+  /* ======================================== */
+  #map-wrap {
+    position: relative;
+    width: 100%;
+  }
+  #map-wrap svg {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+  .region {
+    cursor: pointer;
+    transition: fill 0.18s, filter 0.18s;
+  }
+  .region:hover {
+    fill: rgba(200, 16, 46, 0.8) !important;
+    filter: drop-shadow(0 0 6px rgba(200,16,46,0.35));
+  }
+  #map-wrap image {
+    pointer-events: none;
+  }
+
+  /* Animation radar pour les marqueurs */
+  .radar-ring {
+    animation: radar-expand 3s ease-in-out infinite;
+  }
+
+  @keyframes radar-expand {
+    0% {
+      r: 8;
+      opacity: 1;
+      stroke-width: 2;
+    }
+    100% {
+      r: 40;
+      opacity: 0;
+      stroke-width: 1;
     }
   }
-</style>
-</head>
-<body>
-
-<div class="container">
-
-  <!-- HEADER -->
-  <header class="header">
-    <div class="eyebrow">
-      <span class="eyebrow-line"></span>
-      AMSD ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Â Espace de prÃƒÆ’Ã‚Â©visualisation
-      <span class="eyebrow-line"></span>
-    </div>
-
-
-  </header>
-
-  <!-- SECTIONS -->
-  <div class="sections">
-
-    <!-- ============ PARTIE 1 : MAQUETTES ============ -->
-    <section class="section">
-      <span class="section-badge badge-done">
-        <span class="badge-dot"></span>
-        FinalisÃƒÆ’Ã‚Â©
-      </span>
-
-      <div class="section-header">
-        <div class="section-number">ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Â Partie 01</div>
-        <h2 class="section-title">Maquettes AMSD</h2>
-        <p class="section-desc">Versions officielles des maquettes livrÃƒÆ’Ã‚Â©es.</p>
-      </div>
-
-      <ul class="link-list">
-        <li class="link-item">
-          <a href="maquettes/modele1/index.html">
-            <span class="link-left">
-              <span class="link-num">01</span>
-              <span class="link-label">ModÃƒÆ’Ã‚Â¨le 1</span>
-            </span>
-            <span class="link-arrow">ÃƒÂ¢Ã¢â‚¬Â Ã¢â‚¬â„¢</span>
-          </a>
-        </li>
-        <li class="link-item">
-          <a href="maquettes/modele2/index.html">
-            <span class="link-left">
-              <span class="link-num">02</span>
-              <span class="link-label">ModÃƒÆ’Ã‚Â¨le 2</span>
-            </span>
-            <span class="link-arrow">ÃƒÂ¢Ã¢â‚¬Â Ã¢â‚¬â„¢</span>
-          </a>
-        </li>
-        <li class="link-item">
-          <a href="maquettes/modele3/index.html">
-            <span class="link-left">
-              <span class="link-num">03</span>
-              <span class="link-label">ModÃƒÆ’Ã‚Â¨le 3</span>
-            </span>
-            <span class="link-arrow">ÃƒÂ¢Ã¢â‚¬Â Ã¢â‚¬â„¢</span>
-          </a>
-        </li>
-      </ul>
-    </section>
-
-    <!-- ============ PARTIE 2 : EN COURS ============ -->
-    <section class="section">
-      <span class="section-badge badge-wip">
-        <span class="badge-dot"></span>
-        En construction
-      </span>
-
-      <div class="section-header">
-        <div class="section-number">ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Â Partie 02</div>
-        <h2 class="section-title">Propositions en cours</h2>
-        <p class="section-desc">Pages Ãƒâ€šÃ‚Â« site en construction Ãƒâ€šÃ‚Â» proposÃƒÆ’Ã‚Â©es.</p>
-      </div>
-
-      <ul class="link-list">
-        <li class="link-item">
-          <a href="enCours/modele1/index.html">
-            <span class="link-left">
-              <span class="link-num">01</span>
-              <span class="link-label">ModÃƒÆ’Ã‚Â¨le 1</span>
-            </span>
-            <span class="link-arrow">ÃƒÂ¢Ã¢â‚¬Â Ã¢â‚¬â„¢</span>
-          </a>
-        </li>
-        <li class="link-item">
-          <a href="enCours/modele2/index.html">
-            <span class="link-left">
-              <span class="link-num">02</span>
-              <span class="link-label">ModÃƒÆ’Ã‚Â¨le 2</span>
-            </span>
-            <span class="link-arrow">ÃƒÂ¢Ã¢â‚¬Â Ã¢â‚¬â„¢</span>
-          </a>
-        </li>
-        <li class="link-item">
-          <a href="enCours/modele3/index.html">
-            <span class="link-left">
-              <span class="link-num">03</span>
-              <span class="link-label">ModÃƒÆ’Ã‚Â¨le 3</span>
-            </span>
-            <span class="link-arrow">ÃƒÂ¢Ã¢â‚¬Â Ã¢â‚¬â„¢</span>
-          </a>
-        </li>
-      </ul>
-    </section>
-
-  </div>
-
-  <!-- FOOTER -->
-  <footer class="footer">
-    <p class="footer-text">
-      <strong>AMSD</strong> &nbsp;Ãƒâ€šÃ‚Â·&nbsp; Agence Marocaine du Sang et de ses DÃƒÆ’Ã‚Â©rivÃƒÆ’Ã‚Â©s
-    </p>
-  </footer>
-
-</div>
-
-</body>
-</html>
+  #d3-tooltip {
+    position: absolute;
+    pointer-events: none;
+    background: rgba(255,255,255,0.97);
+    border: 1px solid #e8e3d7;
+    border-radius: 10px;
+    padding: 9px 13px;
+    font-size: 12px;
+    max-width: 210px;
+    opacity: 0;
+    transition: opacity 0.15s;
+    z-index: 20;
+    box-shadow: 0 6px 20px rgba(26,26,46,0.14);
+    font-family: 'Inter', sans-serif;
+  }
+  #d3-tooltip .tname {
+    font-size: 13px;
+    font-weight: 600;
+    color: #1a1a2e;
+    margin-bottom: 5px;
+    line-height: 1.2;
+  }
+  #d3-tooltip .trow {
+    display: flex;
+    gap: 14px;
+    color: #888;
+    margin-top: 2px;
+    font-size: 11px;
+  }
+  #d3-tooltip .tval {
+    color: green;
+    font-weight: 600;
+    font-size: 14px;
+  }
+    #d3-tooltip .tval-legend {
+    color: rgba(17, 87, 17, 0.598);
+    font-weight: 400;
+    font-size: 14px;
+  }
