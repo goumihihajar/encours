@@ -185,19 +185,7 @@ GEOJSON.features.forEach(function(f) {
 });
 
 
-// MODE DEBUG : clique sur la carte pour récupérer les coordonnées
-svg.on('click', function(event) {
-  const [mx, my] = d3.pointer(event);
-  const [lng, lat] = proj.invert([mx, my]);
-  console.log(`Coordonnées : [${lng.toFixed(4)}, ${lat.toFixed(4)}]`);
-  
-  // Affiche un point rouge temporaire pour visualiser
-  svg.append('circle')
-    .attr('cx', mx)
-    .attr('cy', my)
-    .attr('r', 5)
-    .attr('fill', 'red');
-});
+
   
 })();
 </script>
